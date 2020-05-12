@@ -1,16 +1,14 @@
 import './App.css';
 import {useSelector,useDispatch} from 'react-redux';
-import {login,loadCards} from './actions';
+import {login} from './actions';
 import {Card} from './Card';
-import React,{useEffect} from 'react';
+import React from 'react';
 
 function App() {
 
   const dispatch=useDispatch();
   const name=useSelector(state=>state.loginInfo.name);
   const cards=useSelector(state=>state.cards);
-
-  useEffect(()=>{dispatch(loadCards());},[dispatch]);
 
   window.onload=()=>{
     var signinPanel=document.getElementById("signin");
@@ -39,11 +37,11 @@ function App() {
     var overlay=document.getElementById("overlay");
     var messageDiv=document.getElementById("sign-message");
     var message=signInCheck();
-      //if(message==="Sucess"){
+      if(message==="Sucess"){
         overlay.style.display="none";
-      //}else{
+      }else{
         messageDiv.innerHTML=message;
-      //}
+      }
   }
 
   function signInCheck(){
@@ -75,7 +73,7 @@ function App() {
     <div className="App">
       <div id="overlay">
         <div id="login">
-          <div className="title"><span>P</span>rivate</div>
+          <div className="title"><span className="pink">P</span>rivate</div>
           <div className="row">
             <div className="label">E-Mail:</div>
             <input type="text" className="text" id="email-text"></input>
@@ -111,12 +109,19 @@ function App() {
           <div className="notification" id="log">Aready sigined in? Log in now!</div>
         </div>  
       </div>
-      <div id="main">
+      <div id="header">
         <img id="head-img" src={require("./images/head.png")} alt="Author: DavidRockDesign/pixabay"/>
-        <div id="head"><span>P</span>rivate</div>
-        <div id="welcome">Welcome, {name}!</div>
-        {cards.map(card=><Card key={card.email} info={card}></Card>)}
+        <div id="head">
+          <span className="pink">P</span>rivate
+          <div id="sub-head">
+            <span className="pink">S</span>eek, <span className="gold">D</span>iscover AND <span className="blue">E</span>mbrace your inner self!
+          </div>
+        </div>
       </div>
+      <div id="main">
+        <div id="welcome">Welcome, {name}!</div>
+        {cards.map(card=><Card key={card.id} info={card}></Card>)}</div>
+        <div id="footer">© 2020 Junfeng Dai &amp; Jingzhou Zhang&nbsp;&nbsp;&nbsp;&nbsp;All rights reserved.</div>
     </div>
   );
 }

@@ -3,20 +3,24 @@
 }
 .card{
     text-align: left;
-    width: 80%;
-    border: skyblue solid 3px;
+    width:fit-content;
+    max-width: 100%;
+    border: skyblue dashed 3px;
     border-radius: 10px;
     margin-bottom: 10px;
+}
+.card:hover{
+    border: skyblue solid 3px;
 }
 .name{
     font-size: 25px;
     color: rgb(60, 50, 100);
 }
 .content{
+    font-family: 'Itim', cursive;
     font-size: 20px;
     width: 100%;
-    height: fit-content;
-    word-wrap: break-word;
     background-color: skyblue;
     user-select: text;
+    white-space: pre-wrap;
 }

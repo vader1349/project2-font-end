@@ -39,8 +39,14 @@ body{
   font-size: 4em;
   font-family: 'Fredoka One', cursive;
 }
-span{
+.pink{
   color: #FF0066;
+}
+.gold{
+  color: gold;
+}
+.blue{
+  color: skyblue;
 }
 .row{
   height: 60px;
@@ -98,6 +104,31 @@ span{
   position: relative;
   user-select: none;
 }
+#header{
+  margin: 0 auto;
+  width: 50vw;
+  user-select: none;
+}
+#head-img{
+  width: 50vw;
+  position: relative;
+}
+#head{
+  position: absolute;
+  top: 0;
+  font-size: 80px;
+  color: white;
+  font-family: 'Fredoka One', cursive;
+}
+#sub-head{
+  font-size: 15px;
+}
+#welcome{
+  text-align: start;
+  color: rgb(60, 50, 100);
+  font-size: 2em;
+  margin-bottom:10px;
+}
 #main{
   display: flex;
   flex-direction: column;
@@ -105,21 +136,11 @@ span{
   width: 50vw;
   background-color: white;
   user-select: none;
+  border: skyblue solid 5px;
+  border-radius: 20px;
+  padding: 10px;
 }
-#head-img{
-  width: 50vw;
-  position: relative;
-  margin-bottom:20px;
-}
-#head{
-  position: absolute;
-  font-size: 80px;
-  color: white;
-  font-family: 'Fredoka One', cursive;
-}
-#welcome{
-  text-align: start;
-  color: rgb(60, 50, 100);
-  font-size: 2em;
-  margin-bottom:10px;
+#footer{
+  margin-top: 20px;
+  color: gold;
 }

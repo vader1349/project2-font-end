@@ -40,9 +40,10 @@ export function login(email,password,overlay,logMessage){
         .then(response=>checkLogInError(response,logMessage))
         .then(response => response.json())
         .then(data=>{ 
-            dispacth(registerLoginInfo(data));
             if(data.password===password){
                 overlay.style.display="none";
+                dispacth(registerLoginInfo(data));
+                dispacth(loadCards(email));
             }else{
                 logMessage.innerHTML="*Incorrect password";
             }
@@ -51,9 +52,9 @@ export function login(email,password,overlay,logMessage){
     }
 }
 
-export function loadCards(){
+function loadCards(email){
     return dispacth=>{
-        fetch(`${url}/randomcards`)
+        fetch(`${url}/cards/${email}`)
         .then(response=>checkError(response))
         .then(response => response.json())
         .then(data=>{ 
