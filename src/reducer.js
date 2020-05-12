@@ -1,7 +1,8 @@
 import { Action } from "./actions";
 
 const initialState= {
-    loginInfo:[],
+    loginInfo:{},
+    cards:[],
 }
 
 function reducer(state=initialState,action){
@@ -10,6 +11,11 @@ function reducer(state=initialState,action){
             return {
                 ...state,
                 loginInfo:action.payload,
+            };
+        case Action.saveCards:
+            return{
+                ...state,
+                cards:action.payload,
             };
         default:
             return state;

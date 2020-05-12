@@ -1,11 +1,16 @@
-import React from 'react';
 import './App.css';
 import {useSelector,useDispatch} from 'react-redux';
-import {login} from './actions';
+import {login,loadCards} from './actions';
+import {Card} from './Card';
+import React,{useEffect} from 'react';
 
 function App() {
 
   const dispatch=useDispatch();
+  const name=useSelector(state=>state.loginInfo.name);
+  const cards=useSelector(state=>state.cards);
+
+  useEffect(()=>{dispatch(loadCards());},[dispatch]);
 
   window.onload=()=>{
     var signinPanel=document.getElementById("signin");
@@ -34,18 +39,18 @@ function App() {
     var overlay=document.getElementById("overlay");
     var messageDiv=document.getElementById("sign-message");
     var message=signInCheck();
-      if(message==="Sucess"){
+      //if(message==="Sucess"){
         overlay.style.display="none";
-      }else{
+      //}else{
         messageDiv.innerHTML=message;
-      }
+      //}
   }
 
   function signInCheck(){
     var email=document.getElementById("sign-email").value;
     var name=document.getElementById("name").value;
     var password=document.getElementById("sign-password").value;
-    var comfirm=document.getElementById("comfirm").value;
+    var confirm=document.getElementById("confirm").value;
     var emailReg = /^([a-zA-Z]|[0-9])(\w)+@[a-zA-Z0-9]+\.([a-zA-Z]{2,4})$/;
     var nameReg=/^([a-zA-Z0-9]{1,20})$/;
     var passwordReg=/^([a-zA-Z0-9]{8,20})$/;
@@ -58,7 +63,7 @@ function App() {
     else if(!passwordReg.test(password)){
         return "*Password should contain 8-20 numbers or charactors";
     }
-    else if(comfirm!==password){
+    else if(confirm!==password){
         return "*Passwords don't match";
     }
     else{
@@ -77,7 +82,7 @@ function App() {
           </div>
           <div className="row">
             <div className="label">Password:</div>
-            <input type="text" className="text" id="password-text"></input>
+            <input type="password" className="text" id="password-text"></input>
           </div>
           <div className="message" id="log-message"></div>
           <div className="button" id="log-button" onClick={loginButtonAction}>Login</div>
@@ -95,11 +100,11 @@ function App() {
           </div>
           <div className="row">
             <div className="label">Password:</div>
-            <input type="text" className="text" id="sign-password"></input>
+            <input type="password" className="text" id="sign-password"></input>
           </div>
           <div className="row">
-            <div className="label">Comfirm Password:</div>
-            <input type="text" className="text" id="comfirm"></input>
+            <div className="label">confirm Password:</div>
+            <input type="text" className="text" id="confirm"></input>
           </div>
           <div className="message" id="sign-message"></div>
           <div className="button" id="sign-button" onClick={signInButtonAction}>Sign In</div>
@@ -109,6 +114,8 @@ function App() {
       <div id="main">
         <img id="head-img" src={require("./images/head.png")} alt="Author: DavidRockDesign/pixabay"/>
         <div id="head"><span>P</span>rivate</div>
+        <div id="welcome">Welcome, {name}!</div>
+        {cards.map(card=><Card key={card.email} info={card}></Card>)}
       </div>
     </div>
   );
