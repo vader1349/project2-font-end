@@ -1,7 +1,7 @@
 .Card {
     font-family: 'Itim', cursive;
 }
-.card{
+#card{
     text-align: left;
     width:fit-content;
     max-width: 100%;
@@ -9,14 +9,14 @@
     border-radius: 10px;
     margin-bottom: 10px;
 }
-.card:hover{
+#card:hover{
     border: skyblue solid 3px;
 }
-.name{
+#name{
     font-size: 25px;
     color: rgb(60, 50, 100);
 }
-.content{
+#content{
     font-family: 'Itim', cursive;
     font-size: 20px;
     width: 100%;
