@@ -3,7 +3,7 @@ import {useSelector,useDispatch} from 'react-redux';
 import {login} from './actions';
 import {Card} from './Card';
 import React from 'react';
-import { Modifier } from './Modifier';
+import {Modifier} from './Modifier';
 
 function App() {
 
@@ -121,9 +121,10 @@ function App() {
       </div>
       <div id="main">
         <div id="welcome">Welcome, {name}!</div>
-        <Modifier></Modifier>
-        {cards.map(card=><Card key={card.id} info={card}></Card>)}</div>
-        <div id="footer">© 2020 Junfeng Dai &amp; Jingzhou Zhang&nbsp;&nbsp;&nbsp;&nbsp;All rights reserved.</div>
+        <Modifier/>
+        {cards.map(card=><Card key={card.id} info={card}/>)}
+      </div>
+      <div id="footer">© 2020 Junfeng Dai &amp; Jingzhou Zhang&nbsp;&nbsp;&nbsp;&nbsp;All rights reserved.</div>
     </div>
   );
 }

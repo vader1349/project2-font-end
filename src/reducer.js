@@ -17,6 +17,11 @@ function reducer(state=initialState,action){
                 ...state,
                 cards:action.payload,
             };
+            case Action.addCard:
+                return{
+                    ...state,
+                    cards:[action.payload,...state.cards],
+                };
         default:
             return state;
     }

@@ -135,6 +135,7 @@ body{
 #main{
   display: flex;
   flex-direction: column;
+  justify-self: flex-start;
   margin: 0 auto;
   width: 50vw;
   background-color: white;

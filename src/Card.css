@@ -4,7 +4,7 @@
 #card{
     text-align: left;
     width:fit-content;
-    max-width: 100%;
+    max-width: 80%;
     border: skyblue dashed 3px;
     border-radius: 10px;
     margin-bottom: 10px;
