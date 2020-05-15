@@ -5,7 +5,7 @@
     margin-bottom: 20px;
 }
 #view{
-    width: 70%;
+    width: 80%;
     border-radius: 10px;
     border: rgb(135,206,250,0.6) dashed 2px;
     height: 50px;
@@ -25,7 +25,7 @@
     display: none;
     flex-direction: column;
     justify-content: flex-start;
-    width: 70%;
+    width: 80%;
     font-size: 20px;
 }
 #card-text{
@@ -49,6 +49,7 @@
     width: 15%;
     border-radius: 10px;
     font-size: 15px;
+    margin-right: 10px;
 }
 .color-text:hover{
     border: lightskyblue solid 2px;
@@ -57,10 +58,15 @@
     width: 20%;
     border-radius: 10px;
     font-size: 25px;
-    margin-left: 10px;
     background-color: #FF0066;
     color: white;
 }
 #submit:active{
     color: gold;
+}
+#warning{
+    color: red;
+    font-size: 15px;
+    text-align: left;
+    display: none;
 }

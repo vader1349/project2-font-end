@@ -1,6 +1,6 @@
 import './App.css';
 import {useSelector,useDispatch} from 'react-redux';
-import {login} from './actions';
+import {login,signIn} from './actions';
 import {Card} from './Card';
 import React from 'react';
 import {Modifier} from './Modifier';
@@ -36,12 +36,16 @@ function App() {
   
   const signInButtonAction=()=>{
     var overlay=document.getElementById("overlay");
-    var messageDiv=document.getElementById("sign-message");
+    var signMessage=document.getElementById("sign-message");
+    var name=document.getElementById("name").value;
+    var password=document.getElementById("sign-password").value;
+    var email=document.getElementById("sign-email").value;
     var message=signInCheck();
       if(message==="Sucess"){
-        overlay.style.display="none";
+        var date=new Date();
+        dispatch(signIn(date.getDate(),date.getMonth()+1,date.getFullYear(),email,name,password,overlay,signMessage));
       }else{
-        messageDiv.innerHTML=message;
+        signMessage.innerHTML=message;
       }
   }
 
