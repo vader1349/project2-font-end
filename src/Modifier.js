@@ -20,7 +20,7 @@ export function Modifier(){
         var textColor=document.getElementById("textColor").value;
         var backColor=document.getElementById("backColor").value;
         var warning=document.getElementById("warning");
-        if(message!==""&&textColor!==""&&backColor!==""){
+        if(message!==""){
             dispatch(createCard(date.getDate(),date.getMonth()+1,date.getFullYear(),textColor,backColor,message,email));
             document.getElementById("card-text").value="";
             document.getElementById("textColor").value="";
@@ -44,7 +44,7 @@ export function Modifier(){
                     Backgourd Color: <input type="text" className="color-text" id="backColor" title="Hex color code or name"></input>
                     <div id="submit" onClick={addNewCard}>Submit!</div>
                 </div>
-                <div id="warning">*Don't leave them blank</div>
+                <div id="warning">*Don't leave the text blank</div>
             </div>
         </div>
     );

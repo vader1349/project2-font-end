@@ -2,12 +2,16 @@
     font-family: 'Itim', cursive;
 }
 #card{
+    position: relative;
     text-align: left;
     width:fit-content;
     max-width: 80%;
     border: skyblue dashed 3px;
     border-radius: 10px;
     margin-bottom: 10px;
+}
+#card:hover>#delete{
+    display: block;
 }
 #card:hover{
     border: skyblue solid 3px;
@@ -23,4 +27,12 @@
     background-color: skyblue;
     user-select: text;
     white-space: pre-wrap;
+}
+#delete{
+    width: 25px;
+    position: absolute;
+    right: -30px;
+    top: 0;
+    display: none;
+    cursor: pointer;
 }

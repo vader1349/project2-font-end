@@ -2,6 +2,7 @@ export const Action=Object.freeze({
     registerLoginInfo:'registerLoginInfo',
     saveCards:'saveCards',
     addCard:'addCard',
+    removeCard:'removeCard',
 });
 
 function checkSignInError(response,signMessage){
@@ -97,7 +98,7 @@ export function createCard(day,month,year,textColor,backColor,message,email){
     }
 }
 
-export function addCard(card){
+function addCard(card){
     return{
         type:Action.addCard,
         payload:card,
@@ -124,6 +125,35 @@ export function signIn(day,month,year,email,name,password,overlay,signMessage){
 		        name:name,
                 email:email,
             }));
+        })
+        .catch(e=>console.error(e));
+    }
+}
+
+function removeCard(id){
+    return{
+        type:Action.removeCard,
+        payload:id,
+    };
+}
+
+export function deleteCard(id){
+    const info={id:id};
+    const options={
+        method:'DELETE',
+        headers:{
+            'Content-Type':'application/json',
+        },
+        body:JSON.stringify(info),
+    }
+    return dispacth=>{
+        fetch(`${url}/card`,options)
+        .then(response=>checkError(response))
+        .then(response => response.json())
+        .then(data=>{ 
+            if(data.ok){
+                dispacth(removeCard(id));
+            }
         })
         .catch(e=>console.error(e));
     }

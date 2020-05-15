@@ -22,6 +22,11 @@ function reducer(state=initialState,action){
                 ...state,
                 cards:[action.payload,...state.cards],
             };
+        case Action.removeCard:
+        return{
+            ...state,
+            cards:state.cards.filter(card=>card.id!==action.payload),
+            };
         default:
             return state;
     }

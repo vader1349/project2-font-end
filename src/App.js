@@ -107,7 +107,7 @@ function App() {
           </div>
           <div className="row">
             <div className="label">confirm Password:</div>
-            <input type="text" className="text" id="confirm"></input>
+            <input type="password" className="text" id="confirm"></input>
           </div>
           <div className="message" id="sign-message"></div>
           <div className="button" id="sign-button" onClick={signInButtonAction}>Sign In</div>
