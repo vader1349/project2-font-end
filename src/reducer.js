@@ -33,7 +33,6 @@ function reducer(state=initialState,action){
             isLoading:false,
             };
         case Action.startLoading:
-            console.log(state);
         return{
             ...state,
             isLoading:true,

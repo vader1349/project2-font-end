@@ -6,6 +6,7 @@
     text-align: left;
     width:fit-content;
     max-width: 80%;
+    min-width: 25%;
     border: skyblue dashed 3px;
     border-radius: 10px;
     margin-bottom: 10px;
@@ -35,4 +36,49 @@
     top: 0;
     display: none;
     cursor: pointer;
+}
+#comfirm-overlay{
+    position: fixed;
+    width: 100vw;
+    height: 100vh;
+    left: 0;
+    top: 0;
+    background-color: rgba(0,0,0,0.5);
+    display: none;
+    align-items: center;
+    justify-content: center;
+    z-index: 20;
+}
+#comfirm-text{
+    width: 500px;
+    height: 180px;
+    background-color: rgb(60, 50, 100);
+    z-index: 30;
+    position: absolute;
+    border-radius: 20px;
+    color: red;
+    font-size: 20px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+}
+#comfirm-text p{
+    margin-top: 50px;
+}
+#comfirm-title{
+    font-size: 2em;
+    color: white;
+    position: relative;
+    z-index: 40;
+    bottom: 100px;
+    font-size: 4em;
+    font-family: 'Fredoka One', cursive;
+}
+#comfirm-buttons{
+    margin-top: 20px;
+    width: 500px;
+    display: flex;
+    flex-direction: row;
+    justify-content: space-evenly;
+    text-align: center;
 }

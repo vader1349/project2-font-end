@@ -21,14 +21,14 @@ function checkError(response){
     return response;
 }
 
-export function registerLoginInfo(loginInfo){
+function registerLoginInfo(loginInfo){
     return{
         type:Action.registerLoginInfo,
         payload:loginInfo,
     };
 }
 
-export function saveCards(cards){
+function saveCards(cards){
     return{
         type:Action.saveCards,
         payload:cards,

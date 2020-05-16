@@ -6,20 +6,21 @@ import {createCard} from './actions';
 export function Modifier(){
     let view=document.getElementById("view");
     let editor=document.getElementById("editor");
-    const openEditor=()=>{
-        view.style.display="none";
-        editor.style.display="flex";
-    };
+    let warning=document.getElementById("warning");
 
     const email=useSelector(state=>state.loginInfo.email);
     const dispatch=useDispatch();
 
+    
+    const openEditor=()=>{
+        view.style.display="none";
+        editor.style.display="flex";
+    };
     const addNewCard=()=>{
         var date = new Date();
         var message=document.getElementById("card-text").value;
         var textColor=document.getElementById("textColor").value;
         var backColor=document.getElementById("backColor").value;
-        var warning=document.getElementById("warning");
         if(message!==""){
             dispatch(createCard(date.getDate(),date.getMonth()+1,date.getFullYear(),textColor,backColor,message,email));
             document.getElementById("card-text").value="";
@@ -34,6 +35,12 @@ export function Modifier(){
         }
     };
 
+    const cancel=()=>{
+        view.style.display="block";
+        editor.style.display="none";
+        warning.style.display="none";
+    }
+
     return(
         <div id="modifier">
             <div id="view" onClick={openEditor}><span id="plus">+</span> Click here to create a new card!</div>
@@ -42,7 +49,8 @@ export function Modifier(){
                 <div id="card-option">
                     Text Color: <input type="text" className="color-text" id="textColor" title="Hex color code or name"></input>
                     Backgourd Color: <input type="text" className="color-text" id="backColor" title="Hex color code or name"></input>
-                    <div id="submit" onClick={addNewCard}>Submit!</div>
+                    <div className="edit-buttons" onClick={addNewCard}>Submit!</div>
+                    <div className="edit-buttons" onClick={cancel}>Cancel</div>
                 </div>
                 <div id="warning">*Don't leave the text blank</div>
             </div>

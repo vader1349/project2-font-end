@@ -112,6 +112,8 @@ body{
   justify-content: center;
   align-items: center;
   position: fixed;
+  left: 0;
+  top: 0;
   width: 100vw;
   height: 100vh;
   background-color: rgba(0,0,0,0.5);
@@ -123,7 +125,8 @@ body{
   border: dimgrey solid 5px;
   z-index: 30;
   border-top: #FF0066 solid 8px;
-  animation: loading 1s infinite;
+  animation: loading 0.5s infinite;
+  border-radius: 10%;
 }
 #header{
   margin: 0 auto;

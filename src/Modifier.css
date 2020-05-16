@@ -43,10 +43,11 @@
 #card-option{
     display: flex;
     justify-self: flex-start;
+    font-size: 20px;
 }
 .color-text{
     border: lightskyblue dashed 2px;
-    width: 15%;
+    width: 12%;
     border-radius: 10px;
     font-size: 15px;
     margin-right: 10px;
@@ -54,14 +55,16 @@
 .color-text:hover{
     border: lightskyblue solid 2px;
 }
-#submit{
-    width: 20%;
+.edit-buttons{
+    width: 15%;
     border-radius: 10px;
     font-size: 25px;
     background-color: #FF0066;
     color: white;
+    cursor: pointer;
+    margin-right: 5px;
 }
-#submit:active{
+.edit-buttons:active{
     color: gold;
 }
 #warning{
