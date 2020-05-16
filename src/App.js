@@ -10,6 +10,7 @@ function App() {
   const dispatch=useDispatch();
   const name=useSelector(state=>state.loginInfo.name);
   const cards=useSelector(state=>state.cards);
+  const isLoading=useSelector(state=>state.isLoading);
 
   window.onload=()=>{
     var signinPanel=document.getElementById("signin");
@@ -114,6 +115,7 @@ function App() {
           <div className="notification" id="log">Aready sigined in? Log in now!</div>
         </div>  
       </div>
+      {isLoading && <div id="load-layer"><div id="load"></div></div>}
       <div id="header">
         <img id="head-img" src={require("./images/head.png")} alt="Author: DavidRockDesign/pixabay"/>
         <div id="head">

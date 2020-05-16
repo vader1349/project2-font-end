@@ -107,6 +107,24 @@ body{
   position: relative;
   user-select: none;
 }
+#load-layer{
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  position: fixed;
+  width: 100vw;
+  height: 100vh;
+  background-color: rgba(0,0,0,0.5);
+  z-index: 20;
+}
+#load{
+  width: 5vw;
+  height: 5vw;
+  border: dimgrey solid 5px;
+  z-index: 30;
+  border-top: #FF0066 solid 8px;
+  animation: loading 1s infinite;
+}
 #header{
   margin: 0 auto;
   width: 50vw;
@@ -148,4 +166,12 @@ body{
   margin-top: 20px;
   color: gold;
   margin:50px 0;
+}
+@keyframes loading
+{
+  0%   {border: dimgrey solid 5px;border-top: #FF0066 solid 8px;}
+  25%  {border: dimgrey solid 5px;border-right: #FF0066 solid 8px;}
+  50%  {border: dimgrey solid 5px;border-bottom: #FF0066 solid 8px;}
+  75%  {border: dimgrey solid 5px;border-left: #FF0066 solid 8px;}
+  100% {border: dimgrey solid 5px;border-top: #FF0066 solid 8px;}
 }

@@ -31,7 +31,7 @@
 #delete{
     width: 25px;
     position: absolute;
-    right: -30px;
+    right: 0;
     top: 0;
     display: none;
     cursor: pointer;

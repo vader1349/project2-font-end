@@ -3,6 +3,7 @@ export const Action=Object.freeze({
     saveCards:'saveCards',
     addCard:'addCard',
     removeCard:'removeCard',
+    startLoading:'startLoading',
 });
 
 function checkSignInError(response,signMessage){
@@ -38,6 +39,7 @@ const url="https://theprivateserver.duckdns.org:8442";
 
 export function login(email,password,overlay,logMessage){
     return dispacth=>{
+        dispacth(startLoading());
         fetch(`${url}/user/${email}`)
         .then(response=>checkError(response))
         .then(response => response.json())
@@ -59,6 +61,7 @@ export function login(email,password,overlay,logMessage){
 
 function loadCards(email){
     return dispacth=>{
+        dispacth(startLoading());
         fetch(`${url}/cards/${email}`)
         .then(response=>checkError(response))
         .then(response => response.json())
@@ -79,6 +82,7 @@ export function createCard(day,month,year,textColor,backColor,message,email){
         body:JSON.stringify(card),
     }
     return dispacth=>{
+        dispacth(startLoading());
         fetch(`${url}/cards`,options)
         .then(response=>checkError(response))
         .then(response => response.json())
@@ -115,6 +119,7 @@ export function signIn(day,month,year,email,name,password,overlay,signMessage){
         body:JSON.stringify(info),
     }
     return dispacth=>{
+        dispacth(startLoading());
         fetch(`${url}/user`,options)
         .then(response=>checkSignInError(response,signMessage))
         .then(response => response.json())
@@ -147,6 +152,7 @@ export function deleteCard(id){
         body:JSON.stringify(info),
     }
     return dispacth=>{
+        dispacth(startLoading());
         fetch(`${url}/card`,options)
         .then(response=>checkError(response))
         .then(response => response.json())
@@ -157,4 +163,10 @@ export function deleteCard(id){
         })
         .catch(e=>console.error(e));
     }
+}
+
+function startLoading(){
+    return{
+        type:Action.startLoading,
+    };
 }
