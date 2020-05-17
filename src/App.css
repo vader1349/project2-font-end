@@ -107,6 +107,9 @@ body{
   position: relative;
   user-select: none;
 }
+input{
+  border-radius: 10px;
+}
 #load-layer{
   display: flex;
   justify-content: center;
