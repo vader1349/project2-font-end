@@ -46,6 +46,7 @@ export function login(email,password,overlay,logMessage){
         .then(data=>{ 
             if(!data.isFound){
                 logMessage.innerHTML="*E-mail doesn't exist";
+                dispacth(registerLoginInfo({}));
             }
             else if(data.password===password){
                 overlay.style.display="none";
@@ -53,6 +54,7 @@ export function login(email,password,overlay,logMessage){
                 dispacth(loadCards(email));
             }else{
                 logMessage.innerHTML="*Incorrect password";
+                dispacth(registerLoginInfo({}));
             }
         })
         .catch(e=>console.error(e));
